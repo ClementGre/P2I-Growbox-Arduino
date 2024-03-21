@@ -11,13 +11,14 @@ void setup() {
   O2_setup();
   CO2_setup();
   
-  
-
   Serial.begin(9600);
 }
 
 void loop() {
 
+  SoilHumidity_loop();
+  Brightness_loop();
+  WaterLevel_loop();
   temperature_print();
   humidity_print();
   O2_print();

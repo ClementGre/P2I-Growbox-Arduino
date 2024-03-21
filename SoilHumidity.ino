@@ -8,7 +8,7 @@ void SoilHumidity_setup(int port) {
 
 //Plus la terre est humide, plus il envoie de la tension
 //offset de base haut
-void SoilHumidity_print() {
+void SoilHumidity_loop() {
   soilHumidity_tension = analogRead(A1);
   Serial.println(soilHumidity_tension);
 }
