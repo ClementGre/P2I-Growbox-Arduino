@@ -5,15 +5,12 @@ int soilHumidity_pin = A1;
 int brightness_pin = A2;
 int waterLevel_pin = A3;
 int O2_pin = A4;
-int CO2_pin = A5;
 
 bool temperatureHumidity_enabled = true;
-bool soilHumidity_enabled = true;
-bool brightness_enabled = true;
-bool waterLevel_enabled = true;
-bool temperature_humidity_enabled = true;
+bool soilHumidity_enabled = false;
+bool brightness_enabled = false;
+bool waterLevel_enabled = false;
 bool O2_enabled = true;
-bool CO2_enabled = true;
 
 void setup() {
     if (temperatureHumidity_enabled) {
@@ -30,9 +27,6 @@ void setup() {
     }
     if (O2_enabled) {
         O2_setup();
-    }
-    if (CO2_enabled) {
-        CO2_setup();
     }
   
     Serial.begin(9600);
@@ -54,9 +48,6 @@ void loop() {
     }
     if (O2_enabled) {
         O2_print();
-    }
-    if (CO2_enabled) {
-        CO2_print();
     }
 
     delay(1000);
