@@ -1,5 +1,8 @@
 #include <Adafruit_Si7021.h>
-
+/*
+Le capteur est super sensible, dès qu'on met un peu d'eau il renvoie rapidement des valeurs proches du max (1023)
+On devra sûrement faire juste une valeur seuil (ou plutôt une moyenne sur 30 minutes qui donne une idée)
+*/
 Adafruit_Si7021 sensor;
 
 void temperatureHumidity_setup() {
