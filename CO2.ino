@@ -1,5 +1,5 @@
 void CO2_setup() {
-
+    pinMode(CO2_pin, INPUT);
 }
 
 float CO2_fetch() {

@@ -2,7 +2,7 @@
 
 Adafruit_Si7021 sensor;
 
-void temperature_humidity_setup() {
+void temperatureHumidity_setup() {
     sensor = Adafruit_Si7021();
     sensor.begin();
 }

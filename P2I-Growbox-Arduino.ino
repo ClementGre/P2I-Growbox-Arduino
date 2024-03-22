@@ -1,28 +1,63 @@
 #include <Arduino.h>
-int soilHumidity_port = A1;
-int brightness_port = A2;
-int waterLevel_port = A3;
+
+// temperatureHumidity on I2C
+int soilHumidity_pin = A1;
+int brightness_pin = A2;
+int waterLevel_pin = A3;
+int O2_pin = A4;
+int CO2_pin = A5;
+
+bool temperatureHumidity_enabled = true;
+bool soilHumidity_enabled = true;
+bool brightness_enabled = true;
+bool waterLevel_enabled = true;
+bool temperature_humidity_enabled = true;
+bool O2_enabled = true;
+bool CO2_enabled = true;
 
 void setup() {
-  SoilHumidity_setup(soilHumidity_port);
-  Brightness_setup(brightness_port);
-  WaterLevel_setup(waterLevel_port);
-  temperature_humidity_setup();
-  O2_setup();
-  CO2_setup();
+    if (temperatureHumidity_enabled) {
+        temperatureHumidity_setup();
+    }
+    if (soilHumidity_enabled) {
+        soilHumidity_setup();
+    }
+    if (brightness_enabled) {
+        brightness_setup();
+    }
+    if (waterLevel_enabled) {
+        waterLevel_setup();
+    }
+    if (O2_enabled) {
+        O2_setup();
+    }
+    if (CO2_enabled) {
+        CO2_setup();
+    }
   
-  Serial.begin(9600);
+    Serial.begin(9600);
 }
 
 void loop() {
+    if (temperatureHumidity_enabled) {
+        temperature_print();
+        humidity_print();
+    }
+    if (soilHumidity_enabled) {
+        soilHumidity_print();
+    }
+    if (brightness_enabled) {
+        brightness_print();
+    }
+    if (waterLevel_enabled) {
+        waterLevel_print();
+    }
+    if (O2_enabled) {
+        O2_print();
+    }
+    if (CO2_enabled) {
+        CO2_print();
+    }
 
-  SoilHumidity_loop();
-  Brightness_loop();
-  WaterLevel_loop();
-  temperature_print();
-  humidity_print();
-  O2_print();
-  CO2_print();
-
-  delay(1000);
-  }
+    delay(1000);
+}

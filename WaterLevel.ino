@@ -1,11 +1,8 @@
-float waterLevel_resistance = 0;
-
-void WaterLevel_setup(int port) {
-  pinMode(port, INPUT);
-  Serial.begin(9600);
+void waterLevel_setup() {
+  pinMode(waterLevel_pin, INPUT);
 }
 
-void WaterLevel_loop() {
-  waterLevel_resistance = analogRead(A1);
+void waterLevel_print() {
+  float waterLevel_resistance = analogRead(waterLevel_pin);
   Serial.println(waterLevel_resistance);
 }

@@ -1,12 +1,9 @@
-float brightness_tension = 0;
-
 //Plus c'est lumineux, plus la tension est faible
-void Brightness_setup(int port) {
-  pinMode(port, INPUT);
-  Serial.begin(9600);
+void brightness_setup() {
+  pinMode(brightness_pin, INPUT);
 }
 
-void Brightness_loop() {
-  brightness_tension = analogRead(A1);
+void brightness_print() {
+  float brightness_tension = analogRead(brightness_pin);
   Serial.println(brightness_tension);
 }
